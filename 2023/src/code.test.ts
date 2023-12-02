@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { analyze, analyzeOneLine } from './code';
 
 
-describe('day1', () => {
+describe('Advent of code', () => {
   describe('Row extraction', () => {
     it('return the concat of the only number present', () => {
       const input = '1';
@@ -40,10 +40,10 @@ describe('day1', () => {
       const input = '1\n2\n3';
       expect(analyze(input)).toBe(66);
     });
+  });
 
-    it('should respect the example', () => {
-      const input = readFileSync('./src/input.txt', 'utf8');
-      expect(analyze(input)).toBe(55172);
-    });
+  it('should give me the example of day 1', () => {
+    const input = readFileSync('./src/input.txt', 'utf8');
+    expect(analyze(input)).toBe(55172);
   });
 });
