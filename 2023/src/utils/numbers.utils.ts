@@ -12,16 +12,20 @@ const NUMBER_UNDER_10_MAP = new Map<number, string[]>([
   [9, ['nine', '9']],
 ]);
 
+const myParseInt = (char: string) => {
+  for (const [number, values] of NUMBER_UNDER_10_MAP) {
+    if (values.includes(char)) {
+      return number;
+    }
+  }
+  return NaN;
+}
+
 export const isNumberUnder10 = (char?: string | null) => {
   if (!char) {
     return false;
   }
-  const charAsLowerCase = char.toLowerCase();
-  for (const [, numberAsStrings] of NUMBER_UNDER_10_MAP) {
-    if (numberAsStrings.includes(charAsLowerCase)) {
-      return true;
-    }
-  }
+  return !isNaN(myParseInt(char));
 }
 
 export const extractNumber = (char?: string | null) => {
@@ -29,5 +33,5 @@ export const extractNumber = (char?: string | null) => {
     throw new Error('The char is not a number under 10');
   }
   const numberUnder10AsString = char as string;
-  return parseInt(numberUnder10AsString);
+  return myParseInt(numberUnder10AsString);
 }
