@@ -1,4 +1,4 @@
-import { isNumberUnder10 } from './utils/numbers.utils';
+import { extractNumber, isNumberUnder10 } from './utils/numbers.utils';
 
 export const analyzeOneLine = (line: string) => {
   let leftNumberValue = null;
@@ -7,10 +7,10 @@ export const analyzeOneLine = (line: string) => {
     const leftNumber = line[ i ];
     const rightNumber = line[ line.length - i - 1 ];
     if (isNumberUnder10(leftNumber) && leftNumberValue === null) {
-      leftNumberValue = parseInt(leftNumber);
+      leftNumberValue = extractNumber(leftNumber);
     }
     if (isNumberUnder10(rightNumber) && rightNumberValue === null) {
-      rightNumberValue = parseInt(rightNumber);
+      rightNumberValue = extractNumber(rightNumber);
     }
   }
   if (leftNumberValue === null) {
