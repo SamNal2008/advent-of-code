@@ -14,6 +14,10 @@ describe('Numbers utils', () => {
     (`should return false when the value is not a number : %s`, (value) => {
       expect(isNumberUnder10(value)).toBeFalsy();
     });
+
+    it('should return true if the number is written as a string', () => {
+      expect(isNumberUnder10('one')).toBeTruthy();
+    })
   });
 
   describe('extractNumber', () => {
