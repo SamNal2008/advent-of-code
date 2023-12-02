@@ -1,7 +1,4 @@
-
-export const isNumber = (char: string) => {
-  return !isNaN(parseInt(char));
-};
+import { isNumber } from './utils/numbers.utils';
 
 export const analyzeOneLine = (line: string) => {
   let leftNumberValue = null;
