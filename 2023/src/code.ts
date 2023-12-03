@@ -1,13 +1,13 @@
 import { extractNumber, isNumberUnder10 } from './utils/numbers.utils';
 
-function extractLeftNumberIfPresent(currentChar: string, leftNumberValue?: number): any {
+function extractLeftNumberIfPresent(currentChar: string, leftNumberValue?: number): number | undefined {
   if (isNumberUnder10(currentChar) && leftNumberValue === undefined) {
     leftNumberValue = extractNumber(currentChar);
   }
   return leftNumberValue;
 }
 
-function extractRightNumberIfPresent(currentChar: string, rightNumberValue?: number): any {
+const extractRightNumberIfPresent = (currentChar: string, rightNumberValue?: number): number | undefined => {
   if (isNumberUnder10(currentChar)) {
     rightNumberValue = extractNumber(currentChar);
   }
@@ -24,7 +24,7 @@ const computeLineResult = (leftNumberValue?: number, rightNumberValue?: number):
   return ( leftNumberValue * 10 ) + rightNumberValue;
 }
 
-export const analyzeOneLine = (line: string) => {
+export const analyzeOneLine = (line: string): number => {
   let leftNumberValue = undefined;
   let rightNumberValue = undefined;
   for (let i = 0; i < line.length; i++) {
@@ -35,7 +35,7 @@ export const analyzeOneLine = (line: string) => {
   return computeLineResult(leftNumberValue, rightNumberValue);
 };
 
-export const analyze = (input: string) => {
+export const analyze = (input: string): number => {
   const lines = input.split('\n');
   let sum = 0;
   for (let i = 0; i < lines.length; i++) {
