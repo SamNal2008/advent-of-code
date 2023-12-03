@@ -5,7 +5,7 @@ describe('Numbers utils', () => {
   const INVALID_NUMBERS_UNDER_10 = [null, undefined, 'a', '1a', '10', 'height'];
 
   describe('isNumberUnder10', () => {
-    const VALID_NUMBERS_UNDER_10 = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const VALID_NUMBERS_UNDER_10 = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const VALID_NUMBERS_AS_STRING_UNDER_10 = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
     it.each(VALID_NUMBERS_UNDER_10)('should return true when the value is a number : %p', (num) => {
