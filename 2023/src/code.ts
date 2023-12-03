@@ -4,13 +4,12 @@ export const analyzeOneLine = (line: string) => {
   let leftNumberValue = null;
   let rightNumberValue = null;
   for (let i = 0; i < line.length; i++) {
-    const leftNumber = line[ i ];
-    const rightNumber = line[ line.length - i - 1 ];
-    if (isNumberUnder10(leftNumber) && leftNumberValue === null) {
-      leftNumberValue = extractNumber(leftNumber);
+    const currentChar = line[ i ];
+    if (isNumberUnder10(currentChar) && leftNumberValue === null) {
+      leftNumberValue = extractNumber(currentChar);
     }
-    if (isNumberUnder10(rightNumber) && rightNumberValue === null) {
-      rightNumberValue = extractNumber(rightNumber);
+    if (isNumberUnder10(currentChar)) {
+      rightNumberValue = extractNumber(currentChar);
     }
   }
   if (leftNumberValue === null) {
