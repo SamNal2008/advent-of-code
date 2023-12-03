@@ -9,7 +9,7 @@ type NumberUtil = {
 
 type NumberUnderTen = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 
-const NUMBER_UNDER_10_MAP = new Map<NumberUnderTen, NumberUtil>([
+export const NUMBER_UNDER_10_MAP = new Map<NumberUnderTen, NumberUtil>([
   [1, {representations: ['one', '1'], firstLetter: 'o', length: 3}],
   [2, {representations: ['two', '2'], firstLetter: 't', length: 3}],
   [3, {representations: ['three', '3'], firstLetter: 't', length: 5}],

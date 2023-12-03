@@ -3,6 +3,15 @@ import { analyze, analyzeOneLine } from './code';
 
 
 describe('Advent of code', () => {
+
+  it('should give me the answer', () => {
+    const input = readFileSync('./src/day1/input.txt', 'utf8');
+    const day1_part1 = 55172;
+    const day1_part2 = 54925;
+    expect(analyze(input)).toBe(day1_part2);
+  });
+
+
   describe('Row extraction', () => {
     it('return the concat of the only number present', () => {
       const input = '1';
@@ -42,8 +51,20 @@ describe('Advent of code', () => {
     });
   });
 
-  it('should give me the example of day 1', () => {
-    const input = readFileSync('./src/input.txt', 'utf8');
-    expect(analyze(input)).toBe(55172);
+  describe('Day 2 rules', () => {
+    it('should find the substring containing the number', () => {
+      const input = 'one';
+      expect(analyze(input)).toBe(11);
+    });
+
+    it('should find the two number in the string', () => {
+      const input = "onetwo";
+      expect(analyze(input)).toBe(12);
+    });
+
+    it('should find the first and the last number in the string', () => {
+      const input = "oneonefive\nonetwo";
+      expect(analyze(input)).toBe(15 + 12);
+    });
   });
 });
