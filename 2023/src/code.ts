@@ -6,13 +6,9 @@ const extractNumberIfPresent = (currentChar: string, shouldBeReplaced: boolean, 
 };
 
 const computeLineResult = (leftNumberValue?: number, rightNumberValue?: number): number => {
-  if (leftNumberValue === undefined) {
-    return 0;
-  }
-  if (rightNumberValue === undefined) {
-    rightNumberValue = leftNumberValue;
-  }
-  return ( leftNumberValue * 10 ) + rightNumberValue;
+  const leftFinalValue = leftNumberValue ?? 0;
+  const rightFinalValue = rightNumberValue ?? leftFinalValue;
+  return ( leftFinalValue * 10 ) + rightFinalValue;
 };
 
 export const analyzeOneLine = (line: string): number => {
